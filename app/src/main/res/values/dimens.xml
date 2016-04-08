@@ -1,0 +1,10 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="height_cell_poster">180dp</dimen>
+    <dimen name="padding_cell">3dp</dimen>
+    <dimen name="height_app_bar_layout">220dp</dimen>
+    <dimen name="padding_content">12dp</dimen>
+    <dimen name="width_poster">120dp</dimen>
+</resources>
