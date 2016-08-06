@@ -12,7 +12,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.maplonki.popular_movies.MConstants;
+import com.maplonki.popular_movies.Constants;
 import com.maplonki.popular_movies.R;
 import com.maplonki.popular_movies.activities.MainActivity;
 import com.maplonki.popular_movies.models.MovieModel;
@@ -31,11 +31,8 @@ public class MovieDetailFragment extends BaseFragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mMovieModel = getArguments().getParcelable(MConstants.EXTRAS_KEY_MOVIE);
+        mMovieModel = getArguments().getParcelable(Constants.EXTRAS_KEY_MOVIE);
 
-        if (!getResources().getBoolean(R.bool.isTablet)) {
-            ((MainActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        }
 
         setHasOptionsMenu(false);
     }
@@ -56,7 +53,12 @@ public class MovieDetailFragment extends BaseFragment {
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        ((MainActivity) getActivity()).setSupportActionBar((Toolbar) view.findViewById(R.id.detail_toolbar));
+        ((MainActivity)getActivity()).setSupportActionBar((Toolbar) view.findViewById(R.id.detail_toolbar));
+
+
+        ((MainActivity) getActivity()).getSupportActionBar().setDisplayShowHomeEnabled(true);
+        ((MainActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
 
         if (mMovieModel != null) {
             CollapsingToolbarLayout collapsingToolbarLayout = (CollapsingToolbarLayout) view.findViewById(R.id.detail_collapsing_toolbar);
@@ -66,12 +68,12 @@ public class MovieDetailFragment extends BaseFragment {
             }
 
             ImageView backdropImage = (ImageView) view.findViewById(R.id.detail_iv_backdrop);
-            Picasso.with(getActivity()).load(MConstants.BASE_IMAGE_URL + mMovieModel.getBackdropPath())
+            Picasso.with(getActivity()).load(Constants.BASE_IMAGE_URL + mMovieModel.getBackdropPath())
                     .into(backdropImage);
 
 
             ImageView posterImage = (ImageView) view.findViewById(R.id.detail_iv_poster);
-            Picasso.with(getActivity()).load(MConstants.BASE_IMAGE_URL + mMovieModel.getPosterPath())
+            Picasso.with(getActivity()).load(Constants.BASE_IMAGE_URL + mMovieModel.getPosterPath())
                     .into(posterImage);
 
 

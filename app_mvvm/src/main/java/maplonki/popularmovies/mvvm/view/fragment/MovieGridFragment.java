@@ -1,4 +1,4 @@
-package com.maplonki.popular_movies.fragments;
+package maplonki.popularmovies.mvvm.view.fragment;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
@@ -13,18 +13,17 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.maplonki.popular_movies.BuildConfig;
-import com.maplonki.popular_movies.Constants;
-import com.maplonki.popular_movies.R;
-import com.maplonki.popular_movies.activities.MainActivity;
-import com.maplonki.popular_movies.adapters.MovieGridAdapter;
-import com.maplonki.popular_movies.api.MovieService;
-import com.maplonki.popular_movies.api.MovieServiceManager;
-import com.maplonki.popular_movies.models.MovieModel;
-
 import java.util.ArrayList;
 import java.util.List;
 
+import maplonki.popularmovies.mvvm.BuildConfig;
+import maplonki.popularmovies.mvvm.R;
+import maplonki.popularmovies.mvvm.data.api.MovieService;
+import maplonki.popularmovies.mvvm.data.api.MovieServiceManager;
+import maplonki.popularmovies.mvvm.model.MovieModel;
+import maplonki.popularmovies.mvvm.util.Constants;
+import maplonki.popularmovies.mvvm.view.activity.MainActivity;
+import maplonki.popularmovies.mvvm.view.adapter.MovieGridAdapter;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;

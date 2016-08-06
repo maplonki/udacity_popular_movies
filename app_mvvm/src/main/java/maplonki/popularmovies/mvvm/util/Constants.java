@@ -1,11 +1,11 @@
-package com.maplonki.popular_movies;
+package maplonki.popularmovies.mvvm.util;
 
 /**
  * Created by hugo on 4/5/16.
  * <p/>
  * This class contains utility constants for the app
  */
-public class MConstants {
+public class Constants {
     public static final String BASE_URL = "http://api.themoviedb.org/3/";
     public static final String BASE_IMAGE_URL = "http://image.tmdb.org/t/p/w500/";
 

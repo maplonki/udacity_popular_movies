@@ -1,14 +1,14 @@
-package com.maplonki.popular_movies.api;
+package maplonki.popularmovies.mvvm.data.api;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
-import com.maplonki.popular_movies.Constants;
-import com.maplonki.popular_movies.json.MovieDeserializer;
-import com.maplonki.popular_movies.models.MovieModel;
 
 import java.util.List;
 
+import maplonki.popularmovies.mvvm.model.MovieModel;
+import maplonki.popularmovies.mvvm.util.Constants;
+import maplonki.popularmovies.mvvm.util.json.MovieDeserializer;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 

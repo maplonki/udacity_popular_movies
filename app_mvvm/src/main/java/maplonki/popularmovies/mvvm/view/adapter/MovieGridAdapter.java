@@ -1,17 +1,18 @@
-package com.maplonki.popular_movies.adapters;
+package maplonki.popularmovies.mvvm.view.adapter;
 
 import android.content.Context;
+import android.databinding.DataBindingUtil;
 import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-
-import com.maplonki.popular_movies.Constants;
-import com.maplonki.popular_movies.R;
-import com.maplonki.popular_movies.models.MovieModel;
-import com.squareup.picasso.Picasso;
 
 import java.util.List;
+
+import maplonki.popularmovies.mvvm.R;
+import maplonki.popularmovies.mvvm.databinding.CellMovieGridBinding;
+import maplonki.popularmovies.mvvm.model.MovieModel;
+import maplonki.popularmovies.mvvm.viewModel.MovieViewModel;
 
 /**
  * Created by hugo on 4/5/16.
@@ -33,17 +34,21 @@ public class MovieGridAdapter extends RecyclerView.Adapter<MovieGridAdapter.View
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View parentView = View.inflate(mContext, R.layout.cell_movie_grid, null);
-        return new ViewHolder(parentView);
+        CellMovieGridBinding cellBinding = DataBindingUtil.inflate(
+                LayoutInflater.from(mContext),
+                R.layout.cell_movie_grid,
+                parent,
+                false
+        );
+        return new ViewHolder(cellBinding);
     }
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         MovieModel model = mMovieList.get(position);
-
-        Picasso.with(mContext)
-                .load(Constants.BASE_IMAGE_URL + model.getPosterPath())
-                .into(holder.imageMovie);
+        if (model != null) {
+            holder.cellBinding.setMovie(new MovieViewModel(mContext, model));
+        }
     }
 
     @Override
@@ -53,12 +58,12 @@ public class MovieGridAdapter extends RecyclerView.Adapter<MovieGridAdapter.View
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        private ImageView imageMovie;
+        private CellMovieGridBinding cellBinding;
 
-        public ViewHolder(View itemView) {
-            super(itemView);
-            itemView.setOnClickListener(mViewListener);
-            imageMovie = (ImageView) itemView;
+        public ViewHolder(CellMovieGridBinding binding) {
+            super(binding.getRoot());
+            binding.getRoot().setOnClickListener(mViewListener);
+            cellBinding = binding;
         }
     }
 }

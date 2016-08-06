@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="movie"
+            type="maplonki.popularmovies.mvvm.viewModel.MovieViewModel" />
+    </data>
+
+    <android.support.design.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.design.widget.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_app_bar_layout"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+            <android.support.design.widget.CollapsingToolbarLayout
+                android:id="@+id/detail_collapsing_toolbar"
+                app:title="@{movie.title}"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:contentScrim="?attr/colorPrimary"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+                <ImageView
+                    android:id="@+id/detail_iv_backdrop"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:contentDescription="@string/descriptor_cover"
+                    android:scaleType="centerCrop"
+                    app:layout_collapseMode="parallax"
+                    app:movieImage="@{movie.backdrop}" />
+
+                <android.support.v7.widget.Toolbar
+                    android:id="@+id/detail_toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    app:layout_collapseMode="pin" />
+
+
+            </android.support.design.widget.CollapsingToolbarLayout>
+
+        </android.support.design.widget.AppBarLayout>
+
+        <android.support.v4.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/white"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="@dimen/padding_content">
+
+                <ImageView
+                    android:id="@+id/detail_iv_poster"
+                    android:layout_width="@dimen/width_poster"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginRight="10dp"
+                    android:adjustViewBounds="true"
+                    android:contentDescription="@string/descriptor_poster"
+                    android:minHeight="@dimen/height_cell_poster"
+                    android:scaleType="fitCenter"
+                    app:movieImage="@{movie.portrait}" />
+
+                <TextView
+                    android:id="@+id/detail_tv_release_date"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="10dp"
+                    android:layout_toEndOf="@id/detail_iv_poster"
+                    android:layout_toRightOf="@id/detail_iv_poster"
+                    android:text="@{movie.releaseDate}"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    tools:text="Released on 2015-20-09" />
+
+
+                <TextView
+                    android:id="@+id/detail_tv_rating"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/detail_tv_release_date"
+                    android:layout_toEndOf="@id/detail_iv_poster"
+                    android:layout_toRightOf="@id/detail_iv_poster"
+                    android:text="@{movie.rating}"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    tools:text="Rating 7/10" />
+
+                <TextView
+                    android:id="@+id/detail_tv_overview"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/detail_iv_poster"
+                    android:layout_marginTop="20dp"
+                    android:text="@{movie.overview}"
+                    android:textSize="18sp"
+                    tools:text="This is the movie overview" />
+
+            </RelativeLayout>
+
+        </android.support.v4.widget.NestedScrollView>
+
+    </android.support.design.widget.CoordinatorLayout>
+</layout>

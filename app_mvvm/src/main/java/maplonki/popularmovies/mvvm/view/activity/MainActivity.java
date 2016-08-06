@@ -1,4 +1,4 @@
-package com.maplonki.popular_movies.activities;
+package maplonki.popularmovies.mvvm.view.activity;
 
 import android.app.Fragment;
 import android.os.Bundle;
@@ -6,9 +6,10 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 
-import com.maplonki.popular_movies.R;
-import com.maplonki.popular_movies.fragments.MovieGridFragment;
-import com.maplonki.popular_movies.interfaces.FragmentCallback;
+import maplonki.popularmovies.mvvm.R;
+import maplonki.popularmovies.mvvm.util.FragmentCallback;
+import maplonki.popularmovies.mvvm.view.fragment.MovieGridFragment;
+
 
 public class MainActivity extends AppCompatActivity implements FragmentCallback {
 
