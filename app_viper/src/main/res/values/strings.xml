@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Popular Movies</string>
+    <string name="lorem">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae consequuntur deleniti dignissimos dolore eaque explicabo facilis iste laudantium modi non nulla officiis, perspiciatis quod rerum sed sit tenetur veniam voluptates.</string>
+    <string name="release_date_format">Released on %s</string>
+    <string name="rating_format">Rating %d/10</string>
+    <string name="sort_popular">Sort by Popular</string>
+    <string name="sort_top">Sort by Top</string>
+    <string name="title_popular_movies">Popular Movies</string>
+    <string name="title_top_movies">Top Rated Movies</string>
+    <string name="dialog_loading_movies">Loading movies...</string>
+    <string name="descriptor_poster">moviePoster</string>
+    <string name="descriptor_cover">movieCover</string>
+</resources>
